@@ -3,17 +3,20 @@ package fit.ome.singleton;
 /**
  * 单例的简单实现
  * <br>
- *     懒汉模式
- *     不支持并发
+ * 饿汉模式，不管是否需求，直接先创建好了
  *
+ *
+ * 不需要过多思考，简单粗暴
  */
 public class Singleton_01 {
-    private static Singleton_01 code01;
+    // 初始化，直接创建好
+    private static Singleton_01 singleton_01 = new Singleton_01();
+
+    private Singleton_01() {
+    }
 
     public static Singleton_01 getInstance() {
-        if (code01 == null) {
-            code01 = new Singleton_01();
-        }
-        return code01;
+
+        return singleton_01;
     }
 }
